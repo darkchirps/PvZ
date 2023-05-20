@@ -1,0 +1,12 @@
+{
+  "general": {
+    "name": "general",
+    "health": 30,
+    "attack": 10
+  },
+  "sunFlower": {
+    "name": "SunFlower",
+    "health": 80,
+    "attack": 0
+  }
+}
