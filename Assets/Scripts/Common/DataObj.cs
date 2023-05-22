@@ -32,6 +32,7 @@ public class DataObj
     {
         public string name;
         public int health;
+        public int lostHeadHealth;
         public int attack;
         //public List<int> grades;
     }

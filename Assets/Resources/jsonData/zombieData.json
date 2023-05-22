@@ -1,7 +1,8 @@
 {
   "general": {
     "name": "general",
-    "health": 30,
+    "health": 100,
+    "lostHeadHealth": 50,
     "attack": 10
   },
   "sunFlower": {

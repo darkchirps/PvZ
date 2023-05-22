@@ -36,7 +36,7 @@ public class Card : MonoBehaviour
 
     void updateDarkBg()
     {
-        if (progressBar.GetComponent<Image>().fillAmount == 0)
+        if (progressBar.GetComponent<Image>().fillAmount == 0&&gameManager.instance.sunNum>=useSun)
         {
             darkBg.SetActive(false);
         }
@@ -48,6 +48,7 @@ public class Card : MonoBehaviour
     //ÍÏ×§¿ªÊ¼
     public void OnBeginDrag(BaseEventData data)
     {
+        if (darkBg.activeSelf) return;
         PointerEventData pointData = data as PointerEventData;
         curGamePre = Instantiate(objectPre);
         curGamePre.transform.position = Utils.TranlateScreenToworld(pointData.position);
@@ -74,7 +75,10 @@ public class Card : MonoBehaviour
                     curGamePre.transform.parent = c.transform;
                     curGamePre.GetComponent<Renderer>().sortingLayerName = "land";
                     curGamePre.transform.localPosition = Vector3.zero;
+                    curGamePre.GetComponent<plantBase>().setPlantState();
                     curGamePre = null;
+                    gameManager.instance.changeSunNum(-useSun);
+                    waitTimer = 0;
                     break;
                 }
                 else

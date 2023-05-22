@@ -5,6 +5,10 @@ using UnityEngine;
 public class healthBase : MonoBehaviour
 {
     /// <summary>
+    /// ×ÜÑªÁ¿
+    /// </summary>
+    public int healthMax;
+    /// <summary>
     /// ÑªÁ¿
     /// </summary>
     public int health;
@@ -14,5 +18,9 @@ public class healthBase : MonoBehaviour
     public void changeHealth(int post,int max)
     {
         health = Mathf.Clamp(health + post, 0, max);
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -2,28 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeaShooter : healthBase
+public class PeaShooter : plantBase
 {
-    float setBulletTime = 2f;//创建子弹的间隔
+    float setBulletTime = 1f;//创建子弹的间隔
     float setBulletTimer = 0;//创建子弹的时间
     public GameObject bullet;//子弹预制体
     public Transform bulletPos;//子弹生成点
 
-    private void Start()
+    protected override void Start()
     {
-        base.health= Utils.GetPlantData().peaShooter.health;
+        base.Start();
+        health= Utils.GetPlantData().peaShooter.health;
+        currentHealth = health;
     }
     private void Update()
     {
+        if (!isGrow) return;
         setBulletTimer += Time.deltaTime;
         if (setBulletTimer >= setBulletTime)
         {
             setBulletTimer = 0;
             Instantiate(bullet,bulletPos.position,Quaternion.identity);
-        }
-        if (base.health <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 

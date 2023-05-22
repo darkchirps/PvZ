@@ -15,4 +15,10 @@ public class Sun : MonoBehaviour
                 Destroy(gameObject);
         }
     }
+
+    void OnMouseDown()
+    {
+        gameManager.instance.changeSunNum(25);
+        Destroy(gameObject);
+    }
 }
