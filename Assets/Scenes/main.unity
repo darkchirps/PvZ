@@ -4266,7 +4266,7 @@ GameObject:
   - component: {fileID: 5751290556796748434}
   - component: {fileID: 5751290556796748435}
   m_Layer: 0
-  m_Name: zombie
+  m_Name: bornLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
