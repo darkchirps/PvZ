@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bornParent: {fileID: 5751290556796748437}
   zombiePrefab: {fileID: 2626666602684574288, guid: 878c3e89ac6ccb3478b9503a62f861c4, type: 3}
-  sunNum: 500
+  sunNum: 50
 --- !u!4 &466858460
 Transform:
   m_ObjectHideFlags: 0
