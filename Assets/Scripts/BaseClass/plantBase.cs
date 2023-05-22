@@ -17,7 +17,7 @@ public class plantBase : MonoBehaviour
         plantAni = GetComponent<Animator>();
         plantAni.speed = 0;
     }
-    public float changeHealth(float num)
+    public virtual float changeHealth(float num)
     {
         currentHealth = Mathf.Clamp(currentHealth + num, 0, health);
         if (currentHealth <= 0)

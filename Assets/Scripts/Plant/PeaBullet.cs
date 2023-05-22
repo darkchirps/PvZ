@@ -20,7 +20,7 @@ public class PeaBullet : MonoBehaviour
     {
         if (collision.tag == "zombie")
         {
-            collision.GetComponent<ZombieNormal>().changeZombieHealth(-5, Utils.GetZombieData().general.health);
+            collision.GetComponent<ZombieNormal>().changeZombieHealth(-5);
             Destroy(gameObject);
         }
     }

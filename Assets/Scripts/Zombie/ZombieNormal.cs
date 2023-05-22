@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieNormal : healthBase
+public class ZombieNormal : MonoBehaviour
 {
     public float moveSpeed;//僵尸的移动速度
     Rigidbody2D zombieBody;
@@ -15,13 +15,15 @@ public class ZombieNormal : healthBase
     private bool lostHead=false;
     private bool isDie=false;
 
+    private int healthMax;
+    private int health;
 
     bool isWark=true;
 
     private void Start()
     {
-        base.healthMax = Utils.GetZombieData().general.health;
-        base.health = base.healthMax;
+        healthMax = Utils.GetZombieData().general.health;
+        health = healthMax;
         zombieBody = GetComponent<Rigidbody2D>();
         zombieAni = GetComponent<Animator>();
         head = transform.Find("head").gameObject;
@@ -78,7 +80,7 @@ public class ZombieNormal : healthBase
         }
     }
 
-    public void changeZombieHealth(int post, int max)
+    public void changeZombieHealth(int post)
     {
         int lostHeadHealth = Utils.GetZombieData().general.lostHeadHealth;
         health = Mathf.Clamp(health + post, 0, Utils.GetZombieData().general.health);

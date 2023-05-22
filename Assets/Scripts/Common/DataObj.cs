@@ -11,7 +11,8 @@ public class DataObj
     public class plantList//植物的配置
     {
         public plantType peaShooter;
-        public plantType sunFlower;
+        public plantType sunFlower; 
+        public plantType wallNut; 
     }
     [System.Serializable]
     public class plantType//植物属性

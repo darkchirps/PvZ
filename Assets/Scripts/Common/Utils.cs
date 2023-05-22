@@ -123,7 +123,7 @@ public class Utils
 
     public static DataObj.plantList GetPlantData()
     {
-        string filePath = Application.dataPath + "/Resources/jsonData/botanyData.json";
+        string filePath = Application.dataPath + "/Resources/jsonData/plantData.json";
         DataObj.plantList data;
         if (File.Exists(filePath))
         {

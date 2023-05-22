@@ -8,5 +8,10 @@
     "name": "SunFlower",
     "health": 80,
     "attack": 0
+  },
+  "wallNut": {
+    "name": "wallNut",
+    "health": 200,
+    "attack": 0
   }
 }
