@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunPrefab: {fileID: 5670119787323162318, guid: 940f57496605b574eb189f1a981a2df0, type: 3}
-  setSunTime: 3
+  setSunTime: 3.5
   setSunTimer: 0
 --- !u!50 &457069983
 Rigidbody2D:

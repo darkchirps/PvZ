@@ -22,15 +22,13 @@ public class SunFlower : plantBase
         if (setSunTimer >= setSunTime)
         {
             setSunTimer = 0;
-            if (plantAni.GetBool("ready")) return;
             plantAni.SetBool("ready", true);
+            BornSun();
         }
     }
     //动画事件完成后回调
     public void flowerAniEnd()
     {
-        BornSun();
-        plantAni.Play("SunFlowerIdle");
         plantAni.SetBool("ready",false);
     }
     //产出阳光

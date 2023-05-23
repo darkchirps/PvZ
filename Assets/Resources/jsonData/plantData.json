@@ -1,8 +1,8 @@
 {
   "peaShooter": {
     "name": "Peashooter",
-    "health": 20,
-    "attack": 10
+    "health": 100,
+    "attack": 15
   },
   "sunFlower": {
     "name": "SunFlower",
@@ -11,7 +11,7 @@
   },
   "wallNut": {
     "name": "wallNut",
-    "health": 200,
+    "health": 300,
     "attack": 0
   }
 }

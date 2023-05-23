@@ -6,19 +6,37 @@ public class Sun : MonoBehaviour
 {
     public float placeTime;//Ì«Ñô¼ä¸ô
     public float placeTimer;//Ì«ÑôÊ±¼ä
-
+    public Vector3 targetPos=new Vector3(0,0,1);
+    private void Start()
+    {
+        //this.transform.GetChild(0).GetComponent<Canvas>().worldCamera = Camera.main;
+    }
+    public void SetTargetPos(Vector3 pos)
+    {
+        targetPos = pos;
+    }
     private void Update()
     {
-        placeTimer += Time.deltaTime;
-        if (placeTimer>=placeTime)
+        if (transform.position.y>= targetPos.y)
         {
-                Destroy(gameObject);
+            transform.position += Vector3.down * 0.5f * Time.deltaTime;
+        }
+        else
+        {
+            placeTimer = 1f;
+            targetPos.z = 1f;
+        }
+        placeTimer += Time.deltaTime;
+        if (targetPos.z >0f && placeTimer > placeTime)
+        {
+            Destroy(gameObject);
         }
     }
 
-    void OnMouseDown()
+    private void OnMouseDown()
     {
-        gameManager.instance.changeSunNum(25);
         Destroy(gameObject);
+        gameManager.instance.changeSunNum(25);
     }
+    
 }

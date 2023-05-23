@@ -34,7 +34,6 @@ public class ZombieNormal : MonoBehaviour
         if (isDie) return;
         if (isWark)
         {
-            //zombieBody.velocity = new Vector2(-Time.deltaTime * moveSpeed, 0);
             transform.position +=new Vector3(-1,0,0)* moveSpeed * Time.deltaTime;
         }
     }
@@ -62,7 +61,7 @@ public class ZombieNormal : MonoBehaviour
             {
                 eatTimer = 0f;
                 plantBase plant = collision.GetComponent<plantBase>();
-                float newHealth = plant.changeHealth(-5);
+                float newHealth = plant.changeHealth(-Utils.GetZombieData().general.attack);
                 if (newHealth<=0)
                 {
                     isWark = true;

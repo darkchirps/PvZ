@@ -52,7 +52,7 @@ public class Card : MonoBehaviour
         PointerEventData pointData = data as PointerEventData;
         curGamePre = Instantiate(objectPre);
         curGamePre.transform.position = Utils.TranlateScreenToworld(pointData.position);
-        
+        SoundManager.instance.PlaySound(Globals.S_Seedlift);
     }
     public void OnDrag(BaseEventData data)
     {
@@ -68,26 +68,26 @@ public class Card : MonoBehaviour
      
         foreach(Collider2D c in col)
         {
-            if (c.tag == "land")
-            {
+           if (c.CompareTag("land"))
+           {
                 if (c.transform.childCount == 0)
                 {
                     curGamePre.transform.parent = c.transform;
                     curGamePre.GetComponent<Renderer>().sortingLayerName = "land";
                     curGamePre.transform.localPosition = Vector3.zero;
                     curGamePre.GetComponent<plantBase>().setPlantState();
+                    SoundManager.instance.PlaySound(Globals.S_Plant);
                     curGamePre = null;
                     gameManager.instance.changeSunNum(-useSun);
                     waitTimer = 0;
                     break;
                 }
-                else
-                {
-                    Destroy(curGamePre);
-                    curGamePre = null; 
-                    break;
-                }
             }
+        }
+        if (curGamePre != null)
+        {
+            Destroy(curGamePre);
+            curGamePre = null;
         }
     }
 }

@@ -3,7 +3,7 @@
     "name": "general",
     "health": 100,
     "lostHeadHealth": 50,
-    "attack": 10
+    "attack": 5
   },
   "sunFlower": {
     "name": "SunFlower",
