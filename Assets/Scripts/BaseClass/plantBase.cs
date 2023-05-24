@@ -27,7 +27,7 @@ public class plantBase : MonoBehaviour
         return currentHealth; 
     }
 
-    public void setPlantState()
+    public virtual void setPlantState()
     {
         isGrow = true;
         plantCollider.enabled = true;

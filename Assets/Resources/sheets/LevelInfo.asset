@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: LevelInfo
   m_EditorClassIdentifier: 
   LevelInfoList:
+  - levelId: 0
+    levelName: 0
+    progressPercent: []
   - levelId: 1
     levelName: "\u5173\u53611"
     progressPercent:

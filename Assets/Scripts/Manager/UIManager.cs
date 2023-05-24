@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public Text sunNumText;
     public progresspanel progressPanel;
-
     private void Awake()
     {
         instance = this;
@@ -54,11 +53,13 @@ public class UIManager : MonoBehaviour
                 progressNum += 1;
             }
         }
+        Debug.Log("progressNum:"+ progressNum);
 
         // 当前波次剩余的僵尸数量
         int remainNum = gameManager.instance.curProgressZombie.Count;
         // 当前波次进行到多少百分比
         float percent = (float)(progressNum - remainNum) / progressNum;
+        Debug.Log("remainNum:" + remainNum+ ",/percent:"+ percent);
         // 当前波次比例，前一波次比例
         LevelInfoItem levelInfoItem = gameManager.instance.levelInfo.LevelInfoList[gameManager.instance.curLevelId];
         float progressPercent = levelInfoItem.progressPercent[gameManager.instance.curProgressId - 1];

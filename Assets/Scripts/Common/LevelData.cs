@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "levelData", menuName = "config")]
+[CreateAssetMenu(menuName = "LevelData", fileName = "LevelData", order = 3)]
 public class LevelData : ScriptableObject
 {
     public List<LevelItem> LevelDataList = new List<LevelItem>();
