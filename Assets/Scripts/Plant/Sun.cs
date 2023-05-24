@@ -21,10 +21,13 @@ public class Sun : MonoBehaviour
         {
             transform.position += Vector3.down * 0.5f * Time.deltaTime;
         }
-        else
+        else 
         {
-            placeTimer = 1f;
-            targetPos.z = 1f;
+            if (targetPos.z == 0f)
+            {
+                placeTimer = 1f;
+                targetPos.z = 1f;
+            }
         }
         placeTimer += Time.deltaTime;
         if (targetPos.z >0f && placeTimer > placeTime)

@@ -37,6 +37,7 @@ public class gameManager : MonoBehaviour
         UIManager.instance.InitUI();
         gameStart = true;
         CreateZombie();
+        InvokeRepeating("sunMoveDown", 5, 5);
         //InvokeRepeating("CreateSunDown", 10, 10);
         // 播放BGM
         SoundManager.instance.PlayBGM(Globals.BGM1);
@@ -136,47 +137,11 @@ public class gameManager : MonoBehaviour
             TableCreateZombie();
         }
     }
-    // // 等待一定时间后，在随机行生成一只僵尸
-    // IEnumerator DalayCreateZombie()
-    // {
-    //     // 等待
-    //     yield return new WaitForSeconds(createZombieTime);
-
-    //     // 生成
-    //     GameObject zombie = Instantiate(zombiePrefab);
-    //     int index = Random.Range(0, 5);
-    //     Transform zombieLine = bornParent.transform.Find("born" + index.ToString());
-    //     zombie.transform.parent = zombieLine;
-    //     zombie.transform.localPosition = Vector3.zero;
-    //     zombie.GetComponent<SpriteRenderer>().sortingOrder = zOrderIndex;
-    //     zOrderIndex += 1;
-
-    //     // 再次启动定时器
-    //     StartCoroutine(DalayCreateZombie());
-    // }
-
-    public void CreateSunDown()
-    {
-        // 获取左下角、右上角的世界坐标
-        Vector3 leftBottom = Camera.main.ViewportToWorldPoint(Vector2.zero);
-        Vector3 rightTop = Camera.main.ViewportToWorldPoint(Vector2.one);
-        // 加载Sun预制件（另一种办法）
-        GameObject sunPrefab = Resources.Load("Prefab/Sun") as GameObject;
-        // 初始化太阳的位置
-        float x = Random.Range(leftBottom.x + 30, rightTop.x - 30);
-        Vector3 bornPos = new Vector3(x, rightTop.y, 0);
-        GameObject sun = Instantiate(sunPrefab, bornPos, Quaternion.identity);
-        // 设置目标位置
-        float y = Random.Range(leftBottom.y + 100, leftBottom.y + 30);
-        sun.GetComponent<Sun>().SetTargetPos(new Vector3(bornPos.x, y, 0));
-    }
-
 
     public int GetPlantLine(GameObject plant)
     {
         GameObject lineObject = plant.transform.parent.parent.gameObject;
         string lineStr = lineObject.name;
-        // int line = int.Parse(lineStr.Split("line")[1]);
         int line = int.Parse(Split(lineStr, "line")[1]);
         return line;
     }

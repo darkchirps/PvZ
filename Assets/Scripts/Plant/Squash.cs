@@ -25,12 +25,10 @@ public class Squash : plantBase
     public override void setPlantState()
     {
         isGrow = true;
-        plantCollider.enabled = true;
+        plantCollider.enabled = false;
         plantAni.speed = 1;
-
         // 种植完先不启动触发器
         // boxCollider2D.enabled = true;
-
         // 种植完成后才启动
         InvokeRepeating("CheckZombieInRange", 1, 0.5f);
         line = gameManager.instance.GetPlantLine(gameObject);
@@ -44,10 +42,11 @@ public class Squash : plantBase
             case State.Down:
                 break;
             case State.Up:
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(attackPos.x, attackPos.y + 100), Time.deltaTime * 200);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(attackPos.x, attackPos.y + 2), Time.deltaTime * 20);
                 break;
             case State.Over:
-                transform.position = Vector2.MoveTowards(transform.position, attackPos, Time.deltaTime * 200);
+                plantCollider.enabled = true;
+                transform.position = Vector2.MoveTowards(transform.position, attackPos, Time.deltaTime * 20);
                 break;
             default:
                 break;
@@ -57,12 +56,9 @@ public class Squash : plantBase
     public void CheckZombieInRange()
     {
         // 找到攻击对象后，不在check
-        if (attackPos != Vector3.zero)
-            return;
-
+        if (attackPos != Vector3.zero) return;
         List<GameObject> zombies = gameManager.instance.GetLineZombies(line);
-        if (zombies.Count <= 0)
-            return;
+        if (zombies.Count <= 0) return;
         // 拿到距离最近的僵尸，并且判断距离是否在范围内
         float minDis = findZombieDistance;
         GameObject nearZombie = null;
@@ -76,8 +72,7 @@ public class Squash : plantBase
                 nearZombie = zombie;
             }
         }
-        if (nearZombie == null)
-            return;
+        if (nearZombie == null) return;
         // 找到僵尸，选择攻击落点
         attackPos = nearZombie.transform.position;
         DoSquashLook();
@@ -118,7 +113,7 @@ public class Squash : plantBase
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Zombie"))
+        if (other.CompareTag("zombie"))
         {
             other.GetComponent<ZombieNormal>().changeZombieHealth(-damage);
         }
