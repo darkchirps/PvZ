@@ -29,7 +29,6 @@ public class progresspanel : MonoBehaviour
         Progress.GetComponent<Image>().fillAmount = per;
         // 进度条最右边的位置（初始位置）TransformPoint
         float originPosX = Bg.transform.TransformPoint(Vector3.zero).x + Bg.GetComponent<RectTransform>().sizeDelta.x / 2;
-        //float originPosX = Bg.GetComponent<RectTransform>().position.x + Bg.GetComponent<RectTransform>().sizeDelta.x / 4;
         // 进度条宽度
         float width = Bg.GetComponent<RectTransform>().sizeDelta.x;
         // 这个是自定义参数，用来做偏移，调整到自己认为合适的位置
