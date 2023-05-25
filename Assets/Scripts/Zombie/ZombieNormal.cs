@@ -103,4 +103,11 @@ public class ZombieNormal : MonoBehaviour
         gameManager.instance.ZombieDied(gameObject);
         Destroy(gameObject);
     }
+
+    public void bormAniEnd()
+    {
+        zombieAni.enabled = false;
+        gameManager.instance.ZombieDied(gameObject);
+        Destroy(gameObject);
+    }
 }
